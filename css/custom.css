@@ -16,41 +16,51 @@
 html,
 body {
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     height: 100%;
     width: 100%;
     min-width: 300px;
+    max-width: 1200px;
 
     box-sizing: border-box;
 
-    background-color: var(--mainBackColor);
     color: var(--mainTextColor);
     font-size: var(--FontSize-L);
-}
-
-.main-container {
-    width: 100%;
-    margin: auto;
-    max-width: 1200px;
 }
 
 h1 {
     font-size: var(--TitleSize-L);
     margin: 1rem 0 2rem 0;
+}
 
+.fixed-background {
+    z-index: -1;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #111111;
+    opacity: 0.9;
+    background-image: radial-gradient(circle at center center, #2a2830, #111111), repeating-radial-gradient(circle at center center, #2a2830, #2a2830, 40px, transparent 80px, transparent 40px);
+    background-blend-mode: multiply;
 }
 
 /* NAV BAR */
-
-.nav {
+.nav-wrapper {
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-
-    flex-wrap: nowrap;
-
+    left: 0;
+    z-index: 5;
+    width: 100%;
     background-color: var(--mainBackColor);
+}
+
+.nav {
+    margin: 0 auto;
+    flex-wrap: nowrap;
 }
 
 a:hover {
@@ -121,6 +131,18 @@ section article.accordion .accordion-body {
     font-weight: bold;
 }
 
+/* SECTION CONTACT */
+
+section#projects {
+    height: 75vh;
+}
+
+/* SECTION FOOTER */
+
+footer {
+    height: 25vh;
+}
+
 /* only when flex-direction is row */
 @media (min-width: 768px) {
     #about-me div:first-child {
@@ -141,7 +163,6 @@ section article.accordion .accordion-body {
     #accordionExperience .accordion-header button span:first-child {
         min-width: 100px;
     }
-
 }
 
 @media (min-width: 992px) {
