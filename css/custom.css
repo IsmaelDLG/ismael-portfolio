@@ -26,6 +26,7 @@ body {
 
     color: var(--mainTextColor);
     font-size: var(--FontSize-L);
+    font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -48,6 +49,23 @@ h1 {
     background-blend-mode: multiply;
 }
 
+.linkedin-link,
+.linkedin-link:hover,
+.linkedin-link:focus,
+.linkedin-link:visited {
+    text-decoration: none;
+    color: #0077B5;
+    margin-right: 5px;
+}
+
+.github-link,
+.github-link:hover,
+.github-link:focus,
+.github-link:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 /* NAV BAR */
 .nav-wrapper {
     position: fixed;
@@ -61,6 +79,7 @@ h1 {
 .nav {
     margin: 0 auto;
     flex-wrap: nowrap;
+    font-size: large;
 }
 
 a:hover {
@@ -73,7 +92,7 @@ a.active {
 
 .nav-link,
 .nav-link:hover {
-    font-size: (--mainFontSize);
+    font-size: var(--FontSize-L);
     font-weight: bold;
     color: var(--mainTextColor);
 }
@@ -112,17 +131,42 @@ section article.accordion .accordion-body {
 
 /* SECTION ABOUT ME */
 
+#about-me {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#about-me div.wrapper {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#about-me img {
+    width: 100%;
+    max-width: 375px;
+    min-width: 250px;
+    border-radius: 50%;
+}
+
 #about-me article {
     display: flex;
     flex-flow: column nowrap;
 }
 
-#about-me img {
+#about-me footer {
     width: 100%;
-    max-width: 350px;
-    min-width: 250px;
-    border-radius: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
 }
+
+#about-me footer .cv-button,
+#about-me footer .cv-button a {
+    width: 100%;
+}
+
 
 /* SECTION EXPERIENCE */
 
@@ -133,21 +177,13 @@ section article.accordion .accordion-body {
 
 /* SECTION CONTACT */
 
-section#projects {
-    height: 75vh;
-}
 
-/* SECTION FOOTER */
+@media (max-width: 576px) {
 
-footer {
-    height: 25vh;
-}
-
-/* only when flex-direction is row */
-@media (min-width: 768px) {
-    #about-me div:first-child {
-        height: 250px;
-        margin-right: 2rem;
+    .nav-link,
+    .nav-link:hover {
+        font-size: var(--FontSize-S);
+        padding: 0.25rem;
     }
 }
 
@@ -160,19 +196,52 @@ footer {
         font-size: var(--TitleSize-S);
     }
 
+
     #accordionExperience .accordion-header button span:first-child {
         min-width: 100px;
     }
 }
 
 @media (min-width: 992px) {
-    #about-me div:first-child {
-        height: 300px;
+    #about-me div {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    #about-me div header {
+        width: 450px;
+    }
+
+    #about-me div article {
+        text-align: left;
+        max-width: 666px;
+    }
+
+    #about-me footer {
+        max-width: 1100px;
+    }
+
+    #about-me footer .socials {
+        width: 450px;
+    }
+
+    #about-me footer .cv-button {
+        max-width: 666px;
     }
 }
 
-@media (min-width: 1200px) {
-    header div:first-child {
-        height: 350px;
+@media (max-width: 992px) {
+    h1 {
+        font-size: var(--TitleSize-M);
+    }
+
+    #about-me footer .socials {
+        flex: 1;
+    }
+
+    #about-me footer .cv-button {
+        flex: 2;
     }
 }
+
+@media (min-width: 1200px) {}
